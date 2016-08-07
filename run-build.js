@@ -17,13 +17,6 @@ if (!(BUILD_MODE && ALLOWED_MODES[BUILD_MODE])) {
 
 const buildPath = path.join(__dirname, BUILD_MODE.toLowerCase());
 
-ghpages.publish(path,{
-  git: 'https://github.com/ArtemDervoed',
-  branch: 'ghpages',
-  repo: 'https://github.com/ArtemDervoed/Generator',
-  message: 'Auto generate commit'
-});
-
 function build() {
   const webpackConfig = makeConfig({
     BUILD_MODE,
