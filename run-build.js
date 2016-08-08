@@ -24,7 +24,7 @@ function build() {
   });
   webpackConfig.output = {
     path: buildPath,
-    publicPath: '../',
+//    publicPath: '../',
     filename: 'frassets/[name].bundle.[chunkhash].js',
     chunkFilename: 'frassets/[id].bundle.[chunkhash].js',
   };
