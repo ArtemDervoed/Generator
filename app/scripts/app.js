@@ -1,6 +1,7 @@
 import cookies from 'cookies';
 import ReactDOM from 'react-dom';
 import React from 'react';
+import customStyles from 'styles/index.css';
 
 $(document).ajaxSend((event, jqxhr, settings) => {
   if (settings.type !== 'GET') {
@@ -17,7 +18,7 @@ export default class Application {
     const ContactList = React.createClass({
       render: () => {
         return (
-          <div>
+          <div className='messsage-box'>
             Hello Message
           </div>
         );
