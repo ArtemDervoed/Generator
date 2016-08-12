@@ -1,6 +1,26 @@
-div {
-  background-color: red;
+body {
+  margin: 10% auto;
+  width: 500px;
 }
-.messsage-box {
-  color: white;
+header {
+  background-color: red;
+  height: 100px;
+  width: inherit;;
+  background: red;
+  border: 2px solid black;
+}
+.input-box {
+  display: flex;
+  flex-direction: row;
+}
+section {
+  width: inherit;
+  height: auto;
+  background: blue;
+}
+footer {
+  height: 100px;
+  width: inherit;
+  background: red;
+  border: 2px solid black;
 }
