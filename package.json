@@ -78,6 +78,7 @@
     "postcss-loader": "^0.8.0",
     "postcss-size": "^1.0.0",
     "postcss-svgo": "^2.1.2",
+    "react-redux": "^4.4.5",
     "sass-loader": "^3.1.2",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",

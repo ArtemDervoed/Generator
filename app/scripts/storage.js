@@ -13,8 +13,8 @@ export default class Storage {
   }
   setContentItem(id, newContent) {
     const obj = JSON.parse(localStorage.getItem(id));
-		obj.data = newContent;
-		localStorage.setItem(id, JSON.stringify(obj));
+    obj.data = newContent;
+    localStorage.setItem(id, JSON.stringify(obj));
   }
   getLengthStorage() {
     return localStorage.length;
