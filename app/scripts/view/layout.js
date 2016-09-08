@@ -1,24 +1,18 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import Header from './header';
-import Section from './section';
-import Footer from './footer';
+import React from 'react';
+import	{	connect	}	from	'react-redux';
+import InputBox from './InputBox';
+import PlayList from './playList';
+import Filter from './filter';
 
-export default class Layout extends Component {
 
+export default class Layout extends React.Component {
   render() {
-    return (
+    return(
       <div>
-        <Header />
-        <Section />
-        <Footer />
+        <InputBox />
+        <Filter / >
+        <PlayList />
       </div>
     );
   }
 }
-function mapStateProps(state) {
-  return {
-    user: state
-  }
-}
-export default connect(mapStateProps)(Layout);
