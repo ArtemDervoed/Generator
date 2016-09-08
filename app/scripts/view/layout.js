@@ -1,5 +1,5 @@
 import React from 'react';
-import	{	connect	}	from	'react-redux';
+import {connect}	from	'react-redux';
 import InputBox from './InputBox';
 import PlayList from './playList';
 import Filter from './filter';

@@ -3,10 +3,10 @@ import	{connect}	from	'react-redux';
 import {addSong} from '../actions/actions';
 
 let input = {
-  player:'',
-  song:'',
-  album:'',
-  reliseDate:''
+  player: '',
+  song: '',
+  album: '',
+  reliseDate: ''
 };
 
 class InputBox extends React.Component {
@@ -17,7 +17,6 @@ class InputBox extends React.Component {
       album:input.album.value,
       reliseDate:input.reliseDate.value
     }));
-    console.log('hello');
   }
   render() {
     return (
