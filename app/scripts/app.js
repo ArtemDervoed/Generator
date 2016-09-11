@@ -8,7 +8,7 @@ import {store} from './store/store';
 
 export default class Application {
   start() {
-    render(
+    render (
       <Provider store= {store}>
         <Layout />
       </Provider>

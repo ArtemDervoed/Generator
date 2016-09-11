@@ -12,10 +12,10 @@ let input = {
 class InputBox extends React.Component {
   addNewSong(event) {
     this.props.dispatch(addSong({
-      player:input.player.value,
-      song:input.song.value,
-      album:input.album.value,
-      reliseDate:input.reliseDate.value
+      player: input.player.value,
+      song: input.song.value,
+      album: input.album.value,
+      reliseDate: input.reliseDate.value
     }));
   }
   render() {

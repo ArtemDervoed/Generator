@@ -1,11 +1,21 @@
-import Storage from '../storage';
-let storage;
-
 export const addSong = (newSong) => {
-  storage = new Storage();
-  storage.addData(Math.random(),newSong);
   return {
     type: "ADD_SONG",
     payload: newSong,
+  };
+};
+
+export const invalidatePlayList = (songs) => {
+  return {
+    type: "INVALIDATE_PLAYLIST",
+    payload: songs,
+  };
+};
+
+
+export const requestSongs = (songs) => {
+  return {
+    type: "REQUEST_SONGS",
+    payload: songs,
   };
 };
