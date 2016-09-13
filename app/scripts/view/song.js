@@ -1,15 +1,21 @@
 import React from 'react';
 import	{	connect	}	from	'react-redux';
+import {removeSong} from '../actions/actions';
 
 class Song extends React.Component {
+  removeThisSong(event) {
+    // this.props.dispatch(removeSong(this.props.key));
+    console.log(this.props);
+  }
   render() {
     return (
-      <div className="play-list--song">
-        <span>Исполнитель:{this.props.player}</span>
-        <span>Название: {this.props.song}</span>
-        <span>Альбом: {this.props.album}</span>
-        <span>Дата выхода: {this.props.reliseDate}</span>
-      </div>
+      <li className="play-list--song">
+        <label>Исполнитель:{this.props.player}</label>
+        <label>Название: {this.props.song}</label>
+        <label>Альбом: {this.props.album}</label>
+        <label>Дата выхода: {this.props.reliseDate}</label>
+        <button onClick={this.removeThisSong.bind(this)}>Удалить</button>
+      </li>
     );
   }
 }

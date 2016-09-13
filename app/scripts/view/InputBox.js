@@ -3,15 +3,17 @@ import	{connect}	from	'react-redux';
 import {addSong} from '../actions/actions';
 
 let input = {
+  key: '',
   player: '',
   song: '',
   album: '',
   reliseDate: ''
 };
-
 class InputBox extends React.Component {
   addNewSong(event) {
+    let counter = this.props.input.length;
     this.props.dispatch(addSong({
+      key: counter,
       player: input.player.value,
       song: input.song.value,
       album: input.album.value,
