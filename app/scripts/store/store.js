@@ -1,6 +1,5 @@
 import {applyMiddleware, createStore} from 'redux';
 import {mainReducer} from './../reducers/mainReducer';
-import axios from 'axios';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 

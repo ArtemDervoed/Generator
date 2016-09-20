@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import	{connect}	from	'react-redux';
-import Song from './song';
+import Song from './Song';
 
 class PlayList extends React.Component {
   render() {
     return (
       <ul className="play-list">
       {
-        this.props.filter.map((unit) => {
+        this.props.manager.map(unit => {
           return (
-            <Song key={unit.key} player={unit.player} song={unit.song} album={unit.album} reliseDate={unit.reliseDate} />
-          )
+            <Song songId={unit.key} key={unit.key} player={unit.player} song={unit.song} album={unit.album} reliseDate={unit.reliseDate} />
+          );
         })
       }
       </ul>
@@ -18,7 +19,7 @@ class PlayList extends React.Component {
   }
 }
 
-const	mapStateToProps	=	(state)	=> ({
+const	mapStateToProps	=	state	=> ({
   ...state,
 });
 
