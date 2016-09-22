@@ -22,12 +22,7 @@ const playlistManagement = (state = API.getAllStorage(), action) => {
   }
   return [...state];
 };
-const changeFilterProperty = (state = 0, action) => {
-  if (action.type === 'FILTER_PROPERTY') {
-     // //////
-  }
-};
+
 export const mainReducer = combineReducers({
   manager: playlistManagement,
-  filterProperty: changeFilterProperty,
 });
