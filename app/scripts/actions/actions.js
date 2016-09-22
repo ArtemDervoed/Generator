@@ -11,6 +11,12 @@ export const filter = list => {
     payload: list,
   };
 };
+export const changeFilterProperty = type => {
+  return {
+    type: "FILTER_PROPERTY",
+    payload: type,
+  };
+};
 export const removeSong = id => {
   return {
     type: "REMOVE_SONG",

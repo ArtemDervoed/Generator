@@ -1,14 +1,20 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import {connect} from 'react-redux';
-import {filter} from '../actions/actions';
+import * as actions from '../actions/actions';
 // import {filterList} from '../utills/filterList';
-
 class Filter extends React.Component {
   getinitialState() {
     return {
       displayedSongs: this.props.manager,
     };
+  }
+  choosePropertySearch(event) {
+    const typeList = document.getElementsByClassName('filter--property')[0];
+    if (typeList.selectedIndex !== -1) {
+      this.props.dispatch(actions.changeFilterProperty(typeList.selectedIndex));
+      console.log(this.props);
+    }
   }
   searchSong(event) {
     const searchQuery = event.target.value.toLowerCase();
@@ -17,22 +23,22 @@ class Filter extends React.Component {
       return searchValue.indexOf(searchQuery) !== -1;
     });
     if (searchQuery === '') {
-      this.props.dispatch(filter(this.props.manager));
+      this.props.dispatch(actions.filter(this.props.manager));
     } else {
-      this.props.dispatch(filter(displayedSongs));
+      this.props.dispatch(actions.filter(displayedSongs));
     }
   }
   render() {
     return (
-      <div className="filter">
+      <section className="filter">
         <input className="filter--inputbox" onChange={this.searchSong.bind(this)}/>
-        <select name="property" id="0" className="filter--property">
+        <select name="property" className="filter--property" onClick={this.choosePropertySearch.bind(this)}>
          <option value="player">Исполнитель</option>
          <option value="song">Песня</option>
          <option value="album">Альбом</option>
          <option value="reliseDate">Дата релиза</option>
        </select>
-      </div>
+      </section>
     );
   }
 }

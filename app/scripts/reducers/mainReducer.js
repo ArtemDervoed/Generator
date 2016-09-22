@@ -2,17 +2,17 @@ import {combineReducers} from 'redux';
 import * as API from '../API';
 
 const playlistManagement = (state = API.getAllStorage(), action) => {
-  if (action.type === "ADD_SONG") {
+  if (action.type === 'ADD_SONG') {
     state.push(action.payload);
     API.addData(action.payload.key, action.payload);
   }
-  if (action.type === "FILTER") {
+  if (action.type === 'FILTER') {
     state = action.payload;
   }
-  if (action.type === "EDIT_SONG") {
+  if (action.type === 'EDIT_SONG') {
     state = action.payload;
   }
-  if (action.type === "REMOVE_SONG") {
+  if (action.type === 'REMOVE_SONG') {
     for (let i = 0; i < state.length; i++) {
       if (state[i].key === action.payload) {
         state.splice(i, 1);
@@ -22,7 +22,12 @@ const playlistManagement = (state = API.getAllStorage(), action) => {
   }
   return [...state];
 };
-
+const changeFilterProperty = (state = 0, action) => {
+  if (action.type === 'FILTER_PROPERTY') {
+     // //////
+  }
+};
 export const mainReducer = combineReducers({
   manager: playlistManagement,
+  filterProperty: changeFilterProperty,
 });
