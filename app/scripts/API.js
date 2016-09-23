@@ -26,3 +26,23 @@ export const getAllStorage = () => {
 export const getLengthStorage = () => {
   return localStorage.length;
 };
+export const setPlayer = (id, newContent) => {
+  const obj = JSON.parse(localStorage.getItem(id));
+  obj.player = newContent;
+  localStorage.setItem(id, JSON.stringify(obj));
+};
+export const setSong = (id, newContent) => {
+  const obj = JSON.parse(localStorage.getItem(id));
+  obj.song = newContent;
+  localStorage.setItem(id, JSON.stringify(obj));
+};
+export const setAlbum = (id, newContent) => {
+  const obj = JSON.parse(localStorage.getItem(id));
+  obj.album = newContent;
+  localStorage.setItem(id, JSON.stringify(obj));
+};
+export const setReliseDate = (id, newContent) => {
+  const obj = JSON.parse(localStorage.getItem(id));
+  obj.reliseDate = newContent;
+  localStorage.setItem(id, JSON.stringify(obj));
+};
