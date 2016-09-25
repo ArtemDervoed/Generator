@@ -4,25 +4,31 @@ import React from 'react';
 import {connect}	from	'react-redux';
 import {removeSong} from '../actions/actions';
 import * as changeProperty from '../actions/changeProperty';
+import * as API from '../API';
 
 class Song extends React.Component {
   removeThisSong(event) {
     this.props.dispatch(removeSong(this.props.songId));
+    API.removeData(this.props.songId);
   }
   onPlayerDblClick(event) {
     const value = prompt();
+    API.setPlayer(this.props.songId, value);
     this.props.dispatch(changeProperty.changePropertyPlayer(this.props.songId, value));
   }
   onSongDblClick(event) {
     const value = prompt();
+    API.setSong(this.props.songId, value);
     this.props.dispatch(changeProperty.changePropertySong(this.props.songId, value));
   }
   onAlbumDblClick(event) {
     const value = prompt();
+    API.setAlbum(this.props.songId, value);
     this.props.dispatch(changeProperty.changePropertyAlbum(this.props.songId, value));
   }
   onReliceDateDblClick(event) {
     const value = prompt();
+    API.setReliseDate(this.props.songId, value);
     this.props.dispatch(changeProperty.changePropertyDate(this.props.songId, value));
   }
   render() {

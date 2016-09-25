@@ -2,6 +2,7 @@
 import React from 'react';
 import	{connect}	from	'react-redux';
 import {addSong} from '../actions/actions';
+import * as API from '../API';
 
 const input = {
   key: '',
@@ -11,15 +12,17 @@ const input = {
   reliseDate: '',
 };
 class InputBox extends React.Component {
-  addNewSong(event) {
+  onButtonClick(event) {
     let counter = (this.props.manager.length === 0) ? 0 : this.props.manager[this.props.manager.length - 1].key;
-    this.props.dispatch(addSong({
+    const song = {
       key: ++counter,
       player: input.player.value,
       song: input.song.value,
       album: input.album.value,
       reliseDate: input.reliseDate.value,
-    }));
+    };
+    this.props.dispatch(addSong(song));
+    API.addData(counter, song);
   }
   render() {
     return (
@@ -44,7 +47,7 @@ class InputBox extends React.Component {
             input.reliseDate	=	node;
           }
         } />
-        <button onClick={this.addNewSong.bind(this)}>Добавить</button>
+        <button onClick={this.onButtonClick.bind(this)}>Добавить</button>
       </div>
     );
   }

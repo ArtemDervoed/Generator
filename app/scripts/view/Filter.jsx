@@ -2,40 +2,35 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
+import * as API from '../API';
 
+let searchProps = 0;
 class Filter extends React.Component {
   onPropertyChangeClick(event) {
     const typeList = document.getElementsByClassName('filter--property')[0];
     if (typeList.selectedIndex !== -1) {
-      this.props.dispatch(actions.changeFilterProperty(typeList.selectedIndex));
+      searchProps = typeList.selectedIndex;
     }
   }
   onFilterValueChange(event) {
     const searchQuery = event.target.value.toLowerCase();
-    const displayedSongs = this.props.initState.filter(element => {
-      if (this.props.searchProps === 0) {
-        const searchValue = element.player.toLowerCase();
-        return searchValue.indexOf(searchQuery) !== -1;
+    const displayedSongs = API.getAllStorage().filter(element => {
+      let searchValue = '';
+      if (searchProps === 0) {
+        searchValue = element.player.toLowerCase();
       }
-      if (this.props.searchProps === 1) {
-        const searchValue = element.song.toLowerCase();
-        return searchValue.indexOf(searchQuery) !== -1;
+      if (searchProps === 1) {
+        searchValue = element.song.toLowerCase();
       }
-      if (this.props.searchProps === 2) {
-        const searchValue = element.album.toLowerCase();
-        return searchValue.indexOf(searchQuery) !== -1;
+      if (searchProps === 2) {
+        searchValue = element.album.toLowerCase();
       }
-      if (this.props.searchProps === 3) {
-        const searchValue = element.reliseDate.toLowerCase();
-        return searchValue.indexOf(searchQuery) !== -1;
+      if (searchProps === 3) {
+        searchValue = element.reliseDate.toLowerCase();
       }
-      return '';
+      return searchValue.indexOf(searchQuery) !== -1;
     });
-    if (searchQuery.length === 0) {
-      this.props.dispatch(actions.filter(this.props.initState));
-    } else {
-      this.props.dispatch(actions.filter(displayedSongs));
-    }
+    this.props.dispatch(actions.filter(displayedSongs));
   }
   render() {
     return (
