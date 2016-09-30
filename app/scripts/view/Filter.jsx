@@ -13,20 +13,20 @@ class Filter extends React.Component {
     }
   }
   onFilterValueChange(event) {
-    const searchQuery = event.target.value.toLowerCase();
+    const searchQuery = event.target.value;
     const displayedSongs = API.getAllStorage().filter(element => {
       let searchValue = '';
       if (searchProps === 0) {
-        searchValue = element.player.toLowerCase();
+        searchValue = element.player;
       }
       if (searchProps === 1) {
-        searchValue = element.song.toLowerCase();
+        searchValue = element.song;
       }
       if (searchProps === 2) {
-        searchValue = element.album.toLowerCase();
+        searchValue = element.album;
       }
       if (searchProps === 3) {
-        searchValue = element.reliseDate.toLowerCase();
+        searchValue = element.reliseDate;
       }
       return searchValue.indexOf(searchQuery) !== -1;
     });
