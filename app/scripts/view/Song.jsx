@@ -13,7 +13,6 @@ class Song extends React.Component {
     API.removeData(this.props.songId);
   }
   applyNewPlayer(newPlayer) {
-    console.log(this);
     this.dispatch(changeProperty.changePropertyPlayer(this.songId, newPlayer));
     API.setPlayer(this.songId, newPlayer);
   }

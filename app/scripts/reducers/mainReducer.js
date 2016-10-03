@@ -20,7 +20,6 @@ const playlistManagement = (state = initialState, action) => {
       const newState = state;
       for (let i = 0; i < newState.length; i++) {
         if (newState[i].key === action.songId) {
-          console.log(newState[i]);
           newState[i].song = action.payload;
           return [...newState];
         }
@@ -30,7 +29,6 @@ const playlistManagement = (state = initialState, action) => {
       const newState = state;
       for (let i = 0; i < newState.length; i++) {
         if (newState[i].key === action.songId) {
-          console.log(newState[i]);
           newState[i].player = action.payload;
           return [...newState];
         }
@@ -50,7 +48,6 @@ const playlistManagement = (state = initialState, action) => {
       const newState = state;
       for (let i = 0; i < newState.length; i++) {
         if (newState[i].key === action.songId) {
-          console.log(newState[i]);
           newState[i].reliseDate = action.payload;
           return [...newState];
         }

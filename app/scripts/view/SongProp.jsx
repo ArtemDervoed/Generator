@@ -2,25 +2,25 @@ import React from 'react';
 import	{connect}	from	'react-redux';
 
 class SongProp extends React.Component {
-  onInputBlur(event) {
-    const currentValue = event.target.parentNode.childNodes[1].classList;
-    currentValue.remove("__hidden");
-    const input = event.target.parentNode.childNodes[2].classList;
-    this.props.applyProps(event.target.value);
-    input.add("__hidden");
+  componentDidMount() {
+    this.currentValue = this.refs.value;
+    this.input = this.refs.input;
   }
-  onLabelDoubleClick(event) {
-    const currentValue = event.target.parentNode.childNodes[1].classList;
-    currentValue.add("__hidden");
-    const input = event.target.parentNode.childNodes[2].classList;
-    input.remove("__hidden");
+  onInputBlur(event) {
+    this.currentValue.classList.remove("__hidden");
+    this.props.applyProps(event.target.value);
+    this.input.classList.add("__hidden");
+  }
+  onLabelDoubleClick() {
+    this.currentValue.classList.add("__hidden");
+    this.input.classList.remove("__hidden");
   }
   render() {
     return (
       <div className="property">
         <label onDoubleClick={this.onLabelDoubleClick.bind(this)}>{this.props.header}:</label>
-        <span>{this.props.value}</span>
-        <input onBlur={this.onInputBlur.bind(this)} type="text" className="property--editor __hidden"/>
+        <span ref="value">{this.props.value}</span>
+        <input ref="input" onBlur={this.onInputBlur.bind(this)} type="text" className="property--editor __hidden"/>
       </div>
     );
   }

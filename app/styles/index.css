@@ -51,6 +51,10 @@ body {
   border: 2px solid rgba(130, 125, 125, 1);
   list-style: none;
 }
+.property--editor {
+  width: 50%;
+  height: 10px;
+}
 .song-value,.player-value,.album-value,.date-value {
   width: 100%;
 }

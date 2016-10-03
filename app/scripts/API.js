@@ -5,9 +5,6 @@ export const addData = (index, data) => {
 export const removeData = index => {
   localStorage.removeItem(index);
 };
-export const clearAllData = () => {
-  localStorage.clear();
-};
 export const getItem = index => {
   return JSON.parse(localStorage.getItem(localStorage.key(index)));
 };
@@ -22,9 +19,6 @@ export const getAllStorage = () => {
     storage.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
   }
   return storage;
-};
-export const getLengthStorage = () => {
-  return localStorage.length;
 };
 export const setPlayer = (id, newContent) => {
   const obj = JSON.parse(localStorage.getItem(id));

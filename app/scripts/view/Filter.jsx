@@ -4,28 +4,30 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
 import * as API from '../API';
 
-let searchProps = 0;
 class Filter extends React.Component {
+  componentDidMount() {
+    this.searchProps = 0;
+  }
   onPropertyChangeClick(event) {
-    const typeList = document.getElementsByClassName('filter--property')[0];
+    const typeList = this.refs.searchParametrs;
     if (typeList.selectedIndex !== -1) {
-      searchProps = typeList.selectedIndex;
+      this.searchProps = typeList.selectedIndex;
     }
   }
   onFilterValueChange(event) {
     const searchQuery = event.target.value;
     const displayedSongs = API.getAllStorage().filter(element => {
       let searchValue = '';
-      if (searchProps === 0) {
+      if (this.searchProps === 0) {
         searchValue = element.player;
       }
-      if (searchProps === 1) {
+      if (this.searchProps === 1) {
         searchValue = element.song;
       }
-      if (searchProps === 2) {
+      if (this.searchProps === 2) {
         searchValue = element.album;
       }
-      if (searchProps === 3) {
+      if (this.searchProps === 3) {
         searchValue = element.reliseDate;
       }
       return searchValue.indexOf(searchQuery) !== -1;
@@ -36,7 +38,7 @@ class Filter extends React.Component {
     return (
       <section className="filter">
         <input className="filter--inputbox" onChange={this.onFilterValueChange.bind(this)}/>
-        <select name="property" className="filter--property" onClick={this.onPropertyChangeClick.bind(this)}>
+        <select name="property" className="filter--property" ref="searchParametrs" onClick={this.onPropertyChangeClick.bind(this)}>
          <option value="player">Исполнитель</option>
          <option value="song">Песня</option>
          <option value="album">Альбом</option>
