@@ -1,6 +1,6 @@
 export const addSong = newSong => {
   return {
-    type: "ADD_SONG",
+    type: 'ADD_SONG',
     payload: newSong,
   };
 };
@@ -12,19 +12,19 @@ export const getInitialState = list => {
 };
 export const filter = list => {
   return {
-    type: "FILTER",
+    type: 'FILTER',
     payload: list,
   };
 };
 export const changeFilterProperty = type => {
   return {
-    type: "FILTER_PROPERTY",
+    type: 'FILTER_PROPERTY',
     payload: type,
   };
 };
 export const removeSong = id => {
   return {
-    type: "REMOVE_SONG",
+    type: 'REMOVE_SONG',
     payload: id,
   };
 };

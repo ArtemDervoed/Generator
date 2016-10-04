@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import {combineReducers} from 'redux';
 import * as API from '../API';
-import * as changeProperty from '../actions/changeProperty';
 const initialState = API.getAllStorage();
 
-const playlistManagement = (state = initialState, action) => {
+export const playlistManagement = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_SONG': {
       const newState = state;
@@ -38,7 +37,6 @@ const playlistManagement = (state = initialState, action) => {
       const newState = state;
       for (let i = 0; i < newState.length; i++) {
         if (newState[i].key === action.songId) {
-          console.log(newState[i]);
           newState[i].album = action.payload;
           return [...newState];
         }

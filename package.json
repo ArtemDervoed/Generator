@@ -10,7 +10,8 @@
     "lintxo": "xo *.js && xo app/scripts/**/*.js webpack/**/*.js --esnext",
     "dev": "MODE=DEBUG node ./run-dev.js",
     "dist": "MODE=DIST node ./run-build.js",
-    "prod": "MODE=PROD node ./run-build.js"
+    "prod": "MODE=PROD node ./run-build.js",
+    "precommit": "npm run test"
   },
   "dependencies": {
     "axios": "^0.14.0",
