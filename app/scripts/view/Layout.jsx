@@ -9,11 +9,11 @@ import Filter from './Filter';
 export default class Layout extends React.Component {
   render() {
     return (
-      <div>
+      <main>
         <InputBox />
         <Filter />
         <PlayList />
-      </div>
+      </main>
     );
   }
 }

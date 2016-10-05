@@ -28,7 +28,7 @@ class InputBox extends React.Component {
   }
   render() {
     return (
-      <div className="inputbox">
+      <section className="inputbox">
         <input placeholder="Исполнитель" className="inputbox--player __decoration" ref={
           node => {
             this.input.player	=	node;
@@ -50,7 +50,7 @@ class InputBox extends React.Component {
           }
         } />
         <button onClick={this.onButtonClick.bind(this)}>Добавить</button>
-      </div>
+      </section>
     );
   }
 }
