@@ -1,3 +1,5 @@
+// REVIEW: предлагаю все тесты, связанные с тестированием одного редьюсера,
+// объединять в один файл
 import {playlistManagement} from '../mainReducer';
 import * as actions from '../../actions/actions';
 const testStore = [];
