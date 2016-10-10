@@ -1,4 +1,5 @@
-
+// REVIEW: предлагаю хранить список в localStorage одним элементом
+// и перезаписывать его, когда нужно
 export const addData = (index, data) => {
   localStorage.setItem(index.toString(), JSON.stringify(data));
 };
@@ -13,6 +14,9 @@ export const setContentItem = (id, newContent) => {
   obj.data = newContent;
   localStorage.setItem(id, JSON.stringify(obj));
 };
+// REVIEW: этот метод работает неправильно. У меня в localStorage моут храниться
+// другие данные, не относящиеся к плейлисту, а в этом методе ты пытаешься
+// распарсить и вставить в список все элементы.
 export const getAllStorage = () => {
   const storage = [];
   for (let i = 0; i < localStorage.length; i++) {

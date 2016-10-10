@@ -10,12 +10,16 @@ export const getInitialState = list => {
     payload: list,
   };
 };
+// REVIEW: неочевидный экшн, по взгляду на него и в редьюсер создаётся впечатление,
+// что он просто изменяет playlist на list, а с фильтром это никак не связано
 export const filter = list => {
   return {
     type: 'FILTER',
     payload: list,
   };
 };
+// REVIEW: советую использовать стандартный подход к именованию
+// функций гетеров/сетеров - с префиксами get/set соответственно
 export const changeFilterProperty = type => {
   return {
     type: 'FILTER_PROPERTY',
