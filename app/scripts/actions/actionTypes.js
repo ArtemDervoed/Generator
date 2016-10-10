@@ -1,9 +1,9 @@
 export const ADD_SONG = 'ADD_SONG';
 export const GET_INITIAL_STATE = 'GET_INITIAL_STATE';
-export const FILTER = 'FILTER';
+export const PLAYLIST = 'PLAYLIST';
 export const FILTER_PROPERTY = 'FILTER_PROPERTY';
 export const REMOVE_SONG = 'REMOVE_SONG';
-export const CHANGE_SONG = 'CHANGE_SONG';
-export const CHANGE_PLAYER = 'CHANGE_PLAYER';
-export const CHANGE_ALBUM = 'CHANGE_ALBUM';
-export const CHANGE_DATE = 'CHANGE_DATE';
+export const SET_SONG = 'CHANGE_SONG';
+export const SET_PLAYER = 'CHANGE_PLAYER';
+export const SET_ALBUM = 'CHANGE_ALBUM';
+export const SET_DATE = 'CHANGE_DATE';

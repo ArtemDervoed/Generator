@@ -32,7 +32,7 @@ class Filter extends React.Component {
       }
       return searchValue.indexOf(searchQuery) !== -1;
     });
-    this.props.dispatch(actions.filter(displayedSongs));
+    this.props.dispatch(actions.playlist(displayedSongs));
   }
   render() {
     return (

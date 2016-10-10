@@ -14,7 +14,7 @@ const initialState = API.getAllStorage();
 // его можно удобно использовать в рамках редьюсера playlist
 // REVIEW: я бы добавила редьюсер, который хранит значения фильтра и фильтруемого
 // поля и реагировала на его изменение перерисовкой playlist (на уровне представления)
-export const playlistManagement = (state = initialState, action) => {
+export const playlist = (state = initialState, action) => {
   switch (action.type) {
     // REVIEW: Этот метод упрощается до
     // return [...state, action.payload];
@@ -23,14 +23,14 @@ export const playlistManagement = (state = initialState, action) => {
       newState.push(action.payload);
       return [...newState];
     }
-    case 'FILTER': {
+    case 'PLAYLIST': {
       let newState = state;
       newState = action.payload;
       return [...newState];
     }
     // REVIEW: используй .forEach()
     // или ES6 - for (let value of arr)
-    case 'CHANGE_SONG': {
+    case 'SET_SONG': {
       const newState = state;
       for (let i = 0; i < newState.length; i++) {
         if (newState[i].key === action.songId) {
@@ -39,7 +39,7 @@ export const playlistManagement = (state = initialState, action) => {
         }
       }
     } break;
-    case 'CHANGE_PLAYER': {
+    case 'SET_PLAYER': {
       const newState = state;
       for (let i = 0; i < newState.length; i++) {
         if (newState[i].key === action.songId) {
@@ -48,7 +48,7 @@ export const playlistManagement = (state = initialState, action) => {
         }
       }
     } break;
-    case 'CHANGE_ALBUM': {
+    case 'SET_ALBUM': {
       const newState = state;
       for (let i = 0; i < newState.length; i++) {
         if (newState[i].key === action.songId) {
@@ -57,7 +57,7 @@ export const playlistManagement = (state = initialState, action) => {
         }
       }
     } break;
-    case 'CHANGE_DATE': {
+    case 'SET_DATE': {
       const newState = state;
       for (let i = 0; i < newState.length; i++) {
         if (newState[i].key === action.songId) {
@@ -80,5 +80,5 @@ export const playlistManagement = (state = initialState, action) => {
   return [...state];
 };
 export const mainReducer = combineReducers({
-  manager: playlistManagement,
+  manager: playlist,
 });
