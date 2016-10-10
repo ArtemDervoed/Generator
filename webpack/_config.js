@@ -111,7 +111,7 @@ const doConfig = opts => {
       }),
       new (HtmlWebpackPlugin)({
         filename: 'index.html',
-        template: 'index.jade'
+        template: 'index.jade',
       }),
       new ExtractTextPlugin('frassets/app.[contenthash].css', {
         allChunks: true,

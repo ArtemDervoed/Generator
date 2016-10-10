@@ -17,7 +17,7 @@ const newSong = {
   reliseDate: 'newdate',
 };
 testStore.push(newSong);
-initialState.push(song)
+initialState.push(song);
 describe('work main reduer', () => {
   it('change property date', () => {
     expect(playlistManagement(initialState, actions.changePropertyDate(0, 'newdate'))).to.be.eql(testStore);
